@@ -1,4 +1,16 @@
 <html>
-    <head></head>
-    <body>Coming soon</body>
+    <head>
+        <title>Codon64</title>
+		<script src="codon64.js"></script>
+    </head>
+    <body>
+		<label for="plaintext">Plaintext</label>
+        <textarea id="plaintext" rows="5" cols="30"></textarea>
+        <label for="ciphertext">Ciphertext</label>
+        <textarea id="ciphertext" rows="5" cols="30"></textarea>
+		<label for="password">Password</label>
+		<input type="text" id="password"/>
+		<button onclick="encode()">encode</button>
+		<button onclick="decode()">decode</button>
+    </body>
 </html>
