@@ -1,16 +1,30 @@
 <html>
     <head>
-        <title>Codon64</title>
+		<meta charset="UTF-8">
+		<title>Codon64</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="codon64.js"></script>
+		<link rel="stylesheet" href="styles.css">
     </head>
     <body>
-		<label for="plaintext">Plaintext</label>
-        <textarea id="plaintext" rows="5" cols="30"></textarea>
-        <label for="ciphertext">Ciphertext</label>
-        <textarea id="ciphertext" rows="5" cols="30"></textarea>
-		<label for="password">Password</label>
-		<input type="text" id="password"/>
-		<button onclick="encode()">encode</button>
-		<button onclick="decode()">decode</button>
+		<h1>Codon64</h1>
+		<div class="main-container">
+			<div>
+				<label for="plaintext">Plaintext:</label>
+				<textarea id="plaintext" rows="5" cols="80"></textarea>
+			</div>
+			<div class="operations">
+				<button onclick="encode()">encode</button>
+				<button onclick="decode()">decode</button>
+			</div>
+			<div>
+				<label for="ciphertext">Ciphertext:</label>
+				<textarea id="ciphertext" rows="5" cols="80"></textarea>
+			</div>
+		</div>
+		<div class="password-container">
+			<label for="password">Password:</label>
+			<input type="text" id="password"/>
+		</div>
     </body>
 </html>
