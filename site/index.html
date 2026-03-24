@@ -10,22 +10,24 @@
 		<h1>Codon64</h1>
 		<main>
 			<div class="function-container">
-				<div class="plaintext-container">
-					<label for="plaintext">Plaintext:</label>
-					<textarea id="plaintext"></textarea>
+				<label id="plaintext-label" for="plaintext">Plaintext:</label>
+				<textarea id="plaintext"></textarea>
+				<div id="operations">
+					<button id="encode" onclick="encode()">
+						<span class="long-text">Encode 🠊</span>
+						<span class="short-text">🠋 Encode 🠋</span>
+					</button>
+					<button id="decode" onclick="decode()">
+						<span class="long-text">🠈 Decode</span>
+						<span class="short-text">🠉 Decode 🠉</span>
+					</button>
 				</div>
-				<div class="operations">
-					<button onclick="encode()">encode 🠊</button>
-					<button onclick="decode()">🠈 decode</button>
+				<label id="ciphertext-label" for="ciphertext">Ciphertext:</label>
+				<textarea id="ciphertext"></textarea>
+				<div id="password-container">
+					<label for="password">Password:</label>
+					<input type="text" id="password" placeholder="optional"/>
 				</div>
-				<div class="ciphertext-container">
-					<label for="ciphertext">Ciphertext:</label>
-					<textarea id="ciphertext"></textarea>
-				</div>
-			</div>
-			<div class="password-container">
-				<label for="password">Password:</label>
-				<input type="text" id="password"/>
 			</div>
 		</main>
 		<script src="index.js"></script>
