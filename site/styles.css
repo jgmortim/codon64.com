@@ -1,17 +1,46 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    width: min(100%, 1250px);
+    margin: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: LightSteelBlue;
+    border-radius: 10px;
+}
+
 label {
     display:block;
 }
 
-textarea {
-    display:block;
-}
-
-.main-container {
+.function-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+textarea {
+    display: flex;
+    resize: vertical;
+    min-height: 100px;
+    max-height: 640px;
+    min-width: 300px;
+    width: 100%;
+}
+
+.plaintext-container, .ciphertext-container {
+    width: 100%;
+}
+
+.plaintext-container label, .ciphertext-container label {
+    font-size: 20pt;
 }
 
 .operations {
@@ -22,8 +51,10 @@ textarea {
     flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+}
+
+.operations > button {
+    white-space: nowrap;
 }
 
 .password-container {
