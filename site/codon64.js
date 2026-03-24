@@ -27,8 +27,12 @@ const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
 function getShift(password, charIndex) {
-    const passwordChar = password[charIndex % password.length];
-    return ALPHABET.indexOf(passwordChar);
+    if (password === '') {
+        return 0;
+    } else {
+        const passwordChar = password[charIndex % password.length];
+        return ALPHABET.indexOf(passwordChar);
+    }
 }
 
 function encode() {
