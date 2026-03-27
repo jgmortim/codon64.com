@@ -5,18 +5,25 @@ body {
 }
 
 main {
-    width: min(100%, 1250px);
-    margin: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    width: min(calc(100% - 2rem), 1250px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 3rem;
     background-color: LightSteelBlue;
     border-radius: 10px;
+    overflow: none;
 }
 
 h1 {
     color: white;
-    width: min(100%, 1250px);
+    width: min(100% , calc(1250px + 2rem));
     margin: auto;
+}
+
+h2 {
+    padding-top: 1rem;
 }
 
 .function-container {
@@ -24,8 +31,6 @@ h1 {
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: auto 1fr;
     align-items: stretch;
-    margin-left: 1rem;
-    margin-right: 1rem;
 }
 
 #plaintext-label {
