@@ -77,6 +77,7 @@ function encode() {
         }
     }
 
+    highlight('ciphertext');
     document.getElementById('ciphertext').value = encodedCodons.join(" ");
 }
 
@@ -120,5 +121,16 @@ function decode() {
         }
     }
 
+    highlight('plaintext');
     document.getElementById('plaintext').value = decoder.decode(new Uint8Array(plaintextBytes));
+}
+
+function highlight(textareaName) {
+    let textarea = document.getElementById(textareaName);
+
+    textarea.classList.add('highlight');
+        setTimeout(
+            function() { textarea.classList.remove('highlight'); },
+            1000
+        );
 }

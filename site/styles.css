@@ -1,7 +1,16 @@
+:root {
+  --main-color: #3E2354;
+  --heading-color: #D45F8A;
+  --input-color: #839577;
+  --input-text-color: #542339;
+  --input-highlight-color: #9DB88D;
+  --background-color: #867596;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     min-width: 350px;
-    background-color: dimgrey;
+    background-color: var(--background-color);
 }
 
 main {
@@ -11,7 +20,8 @@ main {
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: 3rem;
-    background-color: LightSteelBlue;
+    background-color: var(--main-color);
+    color: white;
     border-radius: 10px;
     overflow: none;
 }
@@ -23,6 +33,7 @@ h1 {
 }
 
 h2 {
+    color: var(--heading-color);
     padding-top: 1rem;
 }
 
@@ -54,12 +65,30 @@ h2 {
 }
 
 textarea {
+    background-color: var(--input-color);
+    color: var(--input-text-color);
+    transition: border 0.8s ease, background-color 0.8s ease;
+    box-sizing: border-box;
+    border: 2px solid  var(--input-color);
+    border-radius: 4px;
     resize: vertical;
     min-height: 100px;
     height: 150px;
     max-height: 640px;
     min-width: 300px;
     width: 100%;
+    margin-top:0.3rem
+}
+
+.highlight {
+    background-color: var(--input-highlight-color);
+    border: 2px solid var(--input-highlight-color);
+}
+
+input {
+    background-color: var(--input-color);
+    color: var(--input-text-color);
+    border-radius: 4px;
 }
 
 .plaintext-container, .ciphertext-container {
@@ -72,6 +101,12 @@ textarea {
 
 label {
     display:block;
+    color: var(--heading-color);
+}
+
+button {
+    background-color: var(--heading-color);
+    border-radius: 4px;
 }
 
 #operations {
@@ -109,7 +144,6 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: dimgrey;
     color: white;
     text-align: center;
 }
