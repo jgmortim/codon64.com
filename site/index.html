@@ -9,6 +9,7 @@
     <body>
 		<h1>Codon64</h1>
 		<main>
+			<h2>Encoder & Decoder</h2>
 			<div class="function-container">
 				<label id="plaintext-label" for="plaintext">Plaintext:</label>
 				<textarea id="plaintext"></textarea>
@@ -29,6 +30,26 @@
 					<input type="text" id="password" placeholder="optional"/>
 				</div>
 			</div>
+			<h2>Explanation</h2>
+			<p>
+				There are 4 nucleotides in DNA:  guanine (G), adenine (A), cytosine (C), and thymine (T).
+				We can assign a numerical representation to each base. Such as A=0, C=1, G=2, and T=3.
+				Then nucleotides can be thought of as a Base4 system.
+			</p>
+			<p>
+				Codons are made of nucleotide triplets, which means there are 64 total codons (4x4x4).
+				Thus, codons as a whole can be thought of as a Base64 system. Wherein each codon is capable of
+				encoding 6 bits. Similar to how each symbol in Base64 encodes 6 bits.
+			</p>
+			<p>
+				This is the basis for <strong>Codon64</strong>. Just like in Base64, we map each 6 bits of input to
+				an output symbol. The main differences is that in Codon64, the symbols are codons, which are
+				expressed with three characters instead of one. Technically, it's also valid to think of this as a
+				Base4 system, in which A, C, G, and T are the 4 digit instead of 0, 1, 2, and 3.
+			</p>
+			<p>
+				And just like in Base64, equal signs are used for padding.
+			</p>
 		</main>
 		<footer>
 			<p>&copy; 2026 John Mortimore. All Rights Reserved.</p>
