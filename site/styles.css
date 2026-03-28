@@ -5,6 +5,7 @@
   --input-text-color: #542339;
   --input-highlight-color: #9DB88D;
   --background-color: #867596;
+  --placeholder-color: #454545;
 }
 
 body {
@@ -137,6 +138,11 @@ button {
 
 .short-text {
     display: none;
+}
+
+::placeholder {
+  color: var(--placeholder-color);
+  opacity: 1;
 }
 
 footer {
