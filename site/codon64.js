@@ -17,7 +17,8 @@ const CODONS = [
     "TTA", "TTC", "TTG", "TTT",
 ];
 
-const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+const PASSWORD_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+const PASSWORD_REGEX = /[^A-Za-z\d\/\+]/g;
 
 const EIGHT_BIT_MASK = 0xFF;
 const SIX_BIT_MASK = 0x3F;
@@ -31,13 +32,18 @@ function getShift(password, charIndex) {
         return 0;
     } else {
         const passwordChar = password[charIndex % password.length];
-        return ALPHABET.indexOf(passwordChar);
+        return PASSWORD_ALPHABET.indexOf(passwordChar);
     }
+}
+
+function cleanPassword(password) {
+    return password.replaceAll(PASSWORD_REGEX, '')
 }
 
 function encode() {
     let input = document.getElementById('plaintext').value;
-    let password = document.getElementById('password').value;
+    let pass = document.getElementById('password').value;
+    let password = cleanPassword(pass);
 
     const bytes = encoder.encode(input);
     const encodedCodons = [];
@@ -83,7 +89,8 @@ function encode() {
 
 function decode() {
     let input = document.getElementById('ciphertext').value;
-    let password = document.getElementById('password').value;
+    let pass = document.getElementById('password').value;
+    let password = cleanPassword(pass);
 
     const inputCodons = input.split(" ");
     let plaintextBytes = [];
