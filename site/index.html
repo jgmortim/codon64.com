@@ -37,21 +37,23 @@
 			<p>
 				There are 4 nucleotides in DNA:  guanine (G), adenine (A), cytosine (C), and thymine (T).
 				We can assign a numerical representation to each base. Such as A=0, C=1, G=2, and T=3.
-				Then nucleotides can be thought of as a Base4 system.
+				Then nucleotides can be thought of as a base 4 system.
 			</p>
 			<p>
 				Codons are made of nucleotide triplets, which means there are 64 total codons (4x4x4).
-				Thus, codons as a whole can be thought of as a Base64 system. Wherein each codon is capable of
-				encoding 6 bits. Similar to how each symbol in Base64 encodes 6 bits.
+				Thus, codons as a whole can be thought of as a base 64 system. Wherein each codon is capable of
+				encoding 6 bits. Similar to how each symbol in Base64
+				(<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-4" target="_blank">RFC 4648 §4</a>)
+				encodes 6 bits.
 			</p>
 			<p>
 				This is the basis for <strong>Codon64</strong>. Just like in Base64, we map each 6 bits of input to
-				an output symbol. The main differences is that in Codon64, the symbols are codons, which are
-				expressed with three characters instead of one. Technically, it's also valid to think of this as a
-				Base4 system, in which A, C, G, and T are the 4 digit instead of 0, 1, 2, and 3.
+				a unique output symbol. The main differences is that in Codon64, the symbols are codons, which are
+				expressed with three characters instead of one. And just like in Base64, equal signs are used for padding.
 			</p>
 			<p>
-				And just like in Base64, equal signs are used for padding.
+				Technically, it's also valid to think of this as a base 4 system, in which A, C, G, and T are the 4
+				digits instead of 0, 1, 2, and 3. But Nucleotide4 doesn't roll off the tongue like Codon64.
 			</p>
 			<h2>Security</h2>
 			<p>
@@ -63,7 +65,7 @@
 			<p>
 				That said, Codon64 should not be used for any serious applications. It is no more secure than the
 				<a href="https://www.dcode.fr/vigenere-cipher" target="_blank">Vigenère cipher</a>, which served as
-				a basis for how the password works.
+				the basis for how the password works in Codon64.
 			</p>
 			<h2>Encoding, Encryption, or Steganography?</h2>
 			<p>
