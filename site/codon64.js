@@ -87,7 +87,7 @@ export function encode(input, pass, noSpaces) {
 export function decode(input, pass) {
     let password = cleanPassword(pass);
 
-    const inputCodons = input.split(" ");
+    const inputCodons = input.replaceAll(/ /g, '').match(/.{1,3}/g);
     let plaintextBytes = [];
 
     for (let i = 0; i < inputCodons.length; i += 4) {
