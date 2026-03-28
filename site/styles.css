@@ -168,17 +168,16 @@ footer {
         grid-row: 2;
     }
 
-    #operations {
-        grid-column: 1;
-        grid-row: 3;
-        flex-direction: row;
-    }
-
     #password-container {
         grid-column: 1;
+        grid-row: 3;
+        margin-top: 1rem;
+    }
+
+    #operations {
+        grid-column: 1;
         grid-row: 4;
-        margin-top: 0;
-        margin-bottom: 1rem;
+        flex-direction: row;
     }
 
     #ciphertext-label {
