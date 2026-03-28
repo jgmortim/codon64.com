@@ -40,7 +40,7 @@ function cleanPassword(password) {
     return password.replaceAll(PASSWORD_REGEX, '')
 }
 
-export function encode(input, pass) {
+export function encode(input, pass, noSpaces) {
     let password = cleanPassword(pass);
 
     const bytes = encoder.encode(input);
@@ -81,7 +81,7 @@ export function encode(input, pass) {
         }
     }
 
-    return encodedCodons.join(" ");
+    return encodedCodons.join(noSpaces ? " " : "");
 }
 
 export function decode(input, pass) {
