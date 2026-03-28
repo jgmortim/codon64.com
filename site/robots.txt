@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://codon64.com/sitemap.xml
