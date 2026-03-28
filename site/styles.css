@@ -1,11 +1,11 @@
 :root {
   --main-color: #3E2354;
-  --heading-color: #D45F8A;
+  --accent-color: #D45F8A;
   --input-color: #839577;
   --input-text-color: #542339;
   --input-highlight-color: #9DB88D;
   --background-color: #867596;
-  --placeholder-color: #454545;
+  --placeholder-text-color: #454545;
 }
 
 body {
@@ -35,12 +35,12 @@ h1 {
 
 h2 {
     padding-top: 1rem;
-    color: var(--heading-color);
+    color: var(--accent-color);
 }
 
 label {
     display:block;
-    color: var(--heading-color);
+    color: var(--accent-color);
 }
 
 label:has(+ textarea) {
@@ -49,7 +49,7 @@ label:has(+ textarea) {
 
 button {
     border-radius: 4px;
-    background-color: var(--heading-color);
+    background-color: var(--accent-color);
     font-size: 12pt;
     white-space: nowrap;
 }
@@ -76,8 +76,12 @@ input {
     color: var(--input-text-color);
 }
 
+input[type="checkbox"] {
+    accent-color: var(--accent-color);
+}
+
 a:link, a:visited {
-    color: var(--heading-color);
+    color: var(--accent-color);
 }
 
 footer {
@@ -100,7 +104,7 @@ footer {
 
 ::placeholder {
     opacity: 1;
-    color: var(--placeholder-color);
+    color: var(--placeholder-text-color);
 }
 
 #function-container {
