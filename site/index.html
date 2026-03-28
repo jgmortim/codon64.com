@@ -49,6 +49,42 @@
 			<p>
 				And just like in Base64, equal signs are used for padding.
 			</p>
+			<h2>Security</h2>
+			<p>
+				Encoding and decoding happens locally on your computer, in your browser. There is no server handling
+				the request. This means that your message is never sent over the internet unencrypted. It's never
+				sent over the internet at all for that matter. Don't trust me? This project is open source. You can
+				review the code	yourself on <a href="https://github.com/jgmortim/codon64.com" target="_blank">GitHub</a>.
+			</p>
+			<p>
+				That said, Codon64 should not be used for any serious applications. It is no more secure than the
+				<a href="https://www.dcode.fr/vigenere-cipher" target="_blank">Vigenère cipher</a>, which serves as
+				basis for how the password works.
+			</p>
+			<h2>Encoding, Encryption, or Steganography?</h2>
+			<p>
+				Well technically, it can be all three.
+			</p>
+			<p>
+				The difference between encoding and encryption often comes down to intent. If your intent is to make
+				your message undecipherable to the watchful eye of a third party, you have an
+				<strong>encryption</strong>. If your intent is just to change the representation of your message into a
+				different format, then you have an <strong>encoding</strong>. For example, the Base64 encoding exists
+				for the purpose of transmitting binary data over a communication channel that only supports text.
+			</p>
+			<p>
+				To my knowledge, the only "communication channel" that is restricted to A, G, C, and T is actual DNA.
+				So if you've somehow figured out a way to create your own DNA sequence and used that to transmit your
+				message, then you would be using Codon64 as encoding. Also, I'd be extremely impressed and want to hear
+				about it.
+			</p>
+			<p>
+				Lastly, whether this counts as <strong>steganography</strong> would depend on how you're transmitting
+				the message. For example, you could try to pass your message off as an actual DNA sequence, or an
+				entire genome if your message was sufficiently large. Whether that would work as a successful pretense
+				to avoid suspicion of your encoded message will largely depend on who you are. But it would count as
+				steganography if you successfully transmitted a message in plain sight without arising suspicion.
+			</p>
 		</main>
 		<footer>
 			<p>&copy; 2026 John Mortimore. All Rights Reserved.</p>

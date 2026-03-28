@@ -76,6 +76,10 @@ input {
     color: var(--input-text-color);
 }
 
+a:link, a:visited {
+    color: var(--heading-color);
+}
+
 footer {
     left: 0;
     bottom: 0;
