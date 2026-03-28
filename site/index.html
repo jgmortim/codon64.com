@@ -3,7 +3,6 @@
 		<meta charset="UTF-8">
 		<title>Codon64</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="codon64.js"></script>
 		<link rel="stylesheet" href="styles.css">
     </head>
     <body>
@@ -14,11 +13,11 @@
 				<label id="plaintext-label" for="plaintext">Plaintext</label>
 				<textarea id="plaintext"></textarea>
 				<div id="operations">
-					<button id="encode" onclick="encode()">
+					<button id="encode">
 						<span class="long-text">Encode →</span>
 						<span class="short-text">↓ Encode ↓</span>
 					</button>
-					<button id="decode" onclick="decode()">
+					<button id="decode">
 						<span class="long-text">← Decode</span>
 						<span class="short-text">↑ Decode ↑</span>
 					</button>
@@ -54,6 +53,6 @@
 		<footer>
 			<p>&copy; 2026 John Mortimore. All Rights Reserved.</p>
 		</footer>
-		<script src="index.js"></script>
+		<script type="module" src="index.js"></script>
     </body>
 </html>

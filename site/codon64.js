@@ -40,9 +40,7 @@ function cleanPassword(password) {
     return password.replaceAll(PASSWORD_REGEX, '')
 }
 
-function encode() {
-    let input = document.getElementById('plaintext').value;
-    let pass = document.getElementById('password').value;
+export function encode(input, pass) {
     let password = cleanPassword(pass);
 
     const bytes = encoder.encode(input);
@@ -83,13 +81,10 @@ function encode() {
         }
     }
 
-    highlight('ciphertext');
-    document.getElementById('ciphertext').value = encodedCodons.join(" ");
+    return encodedCodons.join(" ");
 }
 
-function decode() {
-    let input = document.getElementById('ciphertext').value;
-    let pass = document.getElementById('password').value;
+export function decode(input, pass) {
     let password = cleanPassword(pass);
 
     const inputCodons = input.split(" ");
@@ -128,16 +123,5 @@ function decode() {
         }
     }
 
-    highlight('plaintext');
-    document.getElementById('plaintext').value = decoder.decode(new Uint8Array(plaintextBytes));
-}
-
-function highlight(textareaName) {
-    let textarea = document.getElementById(textareaName);
-
-    textarea.classList.add('highlight');
-        setTimeout(
-            function() { textarea.classList.remove('highlight'); },
-            1000
-        );
+    return decoder.decode(new Uint8Array(plaintextBytes));
 }
