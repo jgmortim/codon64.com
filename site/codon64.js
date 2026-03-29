@@ -69,7 +69,6 @@ export function encode(input, password, noSpaces) {
 
     let bitBuffer = 0;
     let bitCount = 0;
-    let codonCount = 0;
 
     for (const b of bytes) {
         bitBuffer = (bitBuffer << 8) | (b & EIGHT_BIT_MASK);
@@ -78,24 +77,23 @@ export function encode(input, password, noSpaces) {
         while (bitCount >= 6) {
             bitCount -= 6;
             const plainBits = (bitBuffer >> bitCount) & SIX_BIT_MASK;
-            const shift = getShift(key, codonCount);
+            const shift = getShift(key, encodedCodons.length);
             const encodedBits = (plainBits + shift) % 64;
             encodedCodons.push(CODONS[encodedBits]);
-            codonCount++;
         }
     }
 
-    // remaining bits
+    // Handle remaining bits (pad with zeros)
     if (bitCount > 0) {
         const plainBits = (bitBuffer << (6 - bitCount)) & SIX_BIT_MASK;
-        const shift = getShift(key, codonCount);
+        const shift = getShift(key, encodedCodons.length);
         const encodedBits = (plainBits + shift) % 64;
         encodedCodons.push(CODONS[encodedBits]);
-        codonCount++;
     }
 
-    // padding to multiple of 4
-    const mod = codonCount % 4;
+    // It takes 4 codons to get an integer number of bytes, if the number of codons isn't a multiple of 4, pad the message
+    // with "=" to make output length a multiple of 4.
+    const mod = encodedCodons.length % 4;
     if (mod !== 0) {
         for (let i = 0; i < 4 - mod; i++) {
             encodedCodons.push("=");
@@ -115,18 +113,22 @@ export function encode(input, password, noSpaces) {
 export function decode(input, password) {
     let key = cleanPassword(password);
 
+    // Remove spaces and split on every third character.
     const inputCodons = input.replaceAll(/ /g, '').match(/.{1,3}/g);
     let plaintextBytes = [];
 
-    for (let i = 0; i < inputCodons.length; i += 4) {
+    for (let i = 0; i < inputCodons.length; i += 4) { // i indexes over 4 codon (3 byte) blocks.
         let buffer = 0;
         let numberOfValidCodons = 0;
 
-        for (let j = 0; j < 4 && i + j < inputCodons.length; j++) {
+        // Concatenate up to four 6-bit values.
+        for (let j = 0; j < 4 && i + j < inputCodons.length; j++) { // j indexes within the 4 codon (3 byte) blocks.
             const codon = inputCodons[i + j];
             const encodedBits = CODONS.indexOf(codon);
 
-            if (encodedBits === -1) break; // padding
+            if (encodedBits === -1) {
+                break; // Codon was actually padding; ignore it.
+            }
 
             const shift = getShift(key, i + j);
             const plainBits = ((encodedBits - shift) % 64 + 64) % 64; // floorMod
@@ -141,12 +143,12 @@ export function decode(input, password) {
 
         const extraBits = numberOfBits % 8;
         if (extraBits !== 0) {
-            buffer >>= extraBits;
+            buffer >>= extraBits;  // Shift off any extra bits.
         }
 
         for (let b = 0; b < numberOfBytes; b++) {
             const shift = (numberOfBytes - 1 - b) * 8;
-            const byte = (buffer >> shift) & 0xFF;
+            const byte = (buffer >> shift) & EIGHT_BIT_MASK; // Shift and mask the buffer to extract the target byte.
             plaintextBytes.push(byte);
         }
     }
