@@ -64,6 +64,10 @@ label:has(+ textarea) {
     font-size: 14pt;
 }
 
+strong {
+    color: var(--accent-color);
+}
+
 button {
     font-size: 12pt;
     white-space: nowrap;
