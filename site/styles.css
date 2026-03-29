@@ -45,9 +45,14 @@ h1 {
     text-shadow: -1px -1px 0 var(--accent-color);
 }
 
-h1 > sup {
+h1 > sup, h1 > a > sup {
     color: var(--accent-color);
     text-shadow: -1px -1px 0 var(--main-color);
+}
+
+h1 a:link, h1 a:visited  {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 h2 {
