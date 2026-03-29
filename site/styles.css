@@ -1,11 +1,12 @@
 :root {
     --main-color: #3E2354;
-    --accent-color: #D45F8A;
-    --input-color: #839577;
-    --input-text-color: #542339;
-    --input-highlight-color: #9DB88D;
+    --accent-color: #FF70A5;
     --background-color: #867596;
+    --input-color: #839577;
+    --input-highlight-color: #9DB88D;
+    --input-text-color: #542339;
     --placeholder-text-color: #454545;
+    --link-text-color: #FFA3C5;
 }
 
 body {
@@ -97,7 +98,7 @@ input[type="checkbox"] {
 }
 
 a:link, a:visited {
-    color: var(--accent-color);
+    color: var(--link-text-color);
 }
 
 footer {
