@@ -15,3 +15,8 @@ An extremely lightweight (<10 kb) website for Codon64.
 | #FFA3C5 ![#FFA3C5](https://placehold.co/10x10/FFA3C5/FFA3C5) | #3E2354 ![#3E2354](https://placehold.co/10x10/3E2354/3E2354) | 7.18:1  | Link text             |
 | #FF70A5 ![#FF70A5](https://placehold.co/10x10/FF70A5/FF70A5) | #3E2354 ![#3E2354](https://placehold.co/10x10/3E2354/3E2354) | 5.16:1  | Headings, UI elements |
 | #FFFFFF ![#FFFFFF](https://placehold.co/10x10/FFFFFF/FFFFFF) | #867596 ![#867596](https://placehold.co/10x10/867596/867596) | 4.20:1  | Footer text           |
+
+## License
+
+The code for Codon64 is licensed under version 3.0 of the GNU GENERAL PUBLIC LICENSE.
+However, the text content of the website is copyrighted and I reserve the rights for it.

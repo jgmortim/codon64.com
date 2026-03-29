@@ -3,7 +3,7 @@
     --accent-color: #FF70A5;
     --background-color: #867596;
     --input-color: #7FD1B9;
-    --input-highlight-color: #9DB88D;
+    --input-highlight-color: #9EF5DB;
     --input-text-color: #200E16;
     --placeholder-text-color: #454545;
     --link-text-color: #FFA3C5;
@@ -50,7 +50,7 @@ h1 > sup, h1 > a > sup {
     text-shadow: -1px -1px 0 var(--main-color);
 }
 
-h1 a:link, h1 a:visited  {
+h1 a:link, h1 a:visited {
     color: inherit;
     text-decoration: inherit;
 }
