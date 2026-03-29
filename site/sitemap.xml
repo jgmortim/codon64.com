@@ -3,4 +3,8 @@
         <loc>https://codon64.com</loc>
         <priority>1.00</priority>
     </url>
+	<url>
+		<loc>https://codon64.com/about</loc>
+		<priority>0.80</priority>
+	</url>
 </urlset>
