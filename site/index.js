@@ -4,6 +4,7 @@ const plaintext = document.getElementById('plaintext');
 const ciphertext = document.getElementById('ciphertext');
 const password = document.getElementById('password');
 const spaces = document.getElementById('spaces');
+const rna = document.getElementById('rna');
 const textareas = [
     document.getElementById('plaintext'),
     document.getElementById('ciphertext')
@@ -21,7 +22,7 @@ textareas.forEach(t => observer.observe(t));
 /* Encode/Decode Functions */
 
 document.getElementById('encode').addEventListener('click', () => {
-    let output = encode(plaintext.value, password.value, spaces.checked);
+    let output = encode(plaintext.value, password.value, spaces.checked, rna.checked);
     highlight(ciphertext);
     ciphertext.value = output;
 });
@@ -37,12 +38,20 @@ function highlight(el) {
     setTimeout(() => el.classList.remove('highlight'), 1000);
 }
 
-/* Reformat existing ciphertext if checkbox is changed. */
+/* Reformat existing ciphertext if checkboxes are changed. */
 
 spaces.addEventListener('click', () => {
     if (spaces.checked) {
         ciphertext.value = ciphertext.value.replace(/(.{3})/g, "$1 ").replace('==', '= =');
     } else {
         ciphertext.value = ciphertext.value.replaceAll(/ /g, '');
+    }
+});
+
+rna.addEventListener('click', () => {
+    if (rna.checked) {
+        ciphertext.value = ciphertext.value.replace(/T/g, "U");
+    } else {
+        ciphertext.value = ciphertext.value.replaceAll(/U/g, 'T');
     }
 });

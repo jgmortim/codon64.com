@@ -1,4 +1,4 @@
-const CODONS = [
+const DNA_CODONS = [
     "AAA", "AAC", "AAG", "AAT",
     "ACA", "ACC", "ACG", "ACT",
     "AGA", "AGC", "AGG", "AGT",
@@ -15,6 +15,25 @@ const CODONS = [
     "TCA", "TCC", "TCG", "TCT",
     "TGA", "TGC", "TGG", "TGT",
     "TTA", "TTC", "TTG", "TTT",
+];
+
+const RNA_CODONS = [
+    "AAA", "AAC", "AAG", "AAU",
+    "ACA", "ACC", "ACG", "ACU",
+    "AGA", "AGC", "AGG", "AGU",
+    "AUA", "AUC", "AUG", "AUU",
+    "CAA", "CAC", "CAG", "CAU",
+    "CCA", "CCC", "CCG", "CCU",
+    "CGA", "CGC", "CGG", "CGU",
+    "CUA", "CUC", "CUG", "CUU",
+    "GAA", "GAC", "GAG", "GAU",
+    "GCA", "GCC", "GCG", "GCU",
+    "GGA", "GGC", "GGG", "GGU",
+    "GUA", "GUC", "GUG", "GUU",
+    "UAA", "UAC", "UAG", "UAU",
+    "UCA", "UCC", "UCG", "UCU",
+    "UGA", "UGC", "UGG", "UGU",
+    "UUA", "UUC", "UUG", "UUU",
 ];
 
 const PASSWORD_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
@@ -59,10 +78,12 @@ function cleanPassword(password) {
  * @param {string} input     The text to encode.
  * @param {string} password  The password for the encoding. No password is treated the same using just "A".
  * @param {boolean} noSpaces True if the return value should have no spaces between codons.
+ * @param {boolean} rna      If true, RNA codons will be used instead of DNA codons.
  * @returns {string} The encoded text.
  */
-export function encode(input, password, noSpaces) {
+export function encode(input, password, noSpaces, rna) {
     let key = cleanPassword(password);
+    let codonSet = rna ? RNA_CODONS : DNA_CODONS;
 
     const bytes = encoder.encode(input);
     const encodedCodons = [];
@@ -79,7 +100,7 @@ export function encode(input, password, noSpaces) {
             const plainBits = (bitBuffer >> bitCount) & SIX_BIT_MASK;
             const shift = getShift(key, encodedCodons.length);
             const encodedBits = (plainBits + shift) % 64;
-            encodedCodons.push(CODONS[encodedBits]);
+            encodedCodons.push(codonSet[encodedBits]);
         }
     }
 
@@ -88,7 +109,7 @@ export function encode(input, password, noSpaces) {
         const plainBits = (bitBuffer << (6 - bitCount)) & SIX_BIT_MASK;
         const shift = getShift(key, encodedCodons.length);
         const encodedBits = (plainBits + shift) % 64;
-        encodedCodons.push(CODONS[encodedBits]);
+        encodedCodons.push(codonSet[encodedBits]);
     }
 
     // It takes 4 codons to get an integer number of bytes, if the number of codons isn't a multiple of 4, pad the message
@@ -112,26 +133,27 @@ export function encode(input, password, noSpaces) {
  */
 export function decode(input, password) {
     let key = cleanPassword(password);
+    let codonSet = input.includes("T") ? DNA_CODONS : RNA_CODONS;
 
     // Remove spaces and split on every third character.
     const inputCodons = input.replaceAll(/ /g, '').match(/.{1,3}/g);
     let plaintextBytes = [];
 
-    for (let i = 0; i < inputCodons.length; i += 4) { // i indexes over 4 codon (3 byte) blocks.
+    for (let i = 0; i < inputCodons?.length; i += 4) { // i indexes over 4 codon (3 byte) blocks.
         let buffer = 0;
         let numberOfValidCodons = 0;
 
         // Concatenate up to four 6-bit values.
         for (let j = 0; j < 4 && i + j < inputCodons.length; j++) { // j indexes within the 4 codon (3 byte) blocks.
             const codon = inputCodons[i + j];
-            const encodedBits = CODONS.indexOf(codon);
+            const encodedBits = codonSet.indexOf(codon);
 
             if (encodedBits === -1) {
                 break; // Codon was actually padding; ignore it.
             }
 
             const shift = getShift(key, i + j);
-            const plainBits = ((encodedBits - shift) % 64 + 64) % 64; // floorMod
+            const plainBits = ((encodedBits - shift) % 64 + 64) % 64;
             buffer = (buffer << 6) | plainBits;
             numberOfValidCodons++;
         }

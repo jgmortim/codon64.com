@@ -30,10 +30,15 @@
 			<label for="password">Password:</label>
 			<input type="text" id="password" placeholder="optional"/>
 		</div>
-		<div id="options-container">
-			<input type="checkbox" id="spaces" name="spaces" value="spaces">
-			<label for="spaces">spaces between codons</label><br>
-		</div>
+		<details id="options-container">
+			<summary>Additional Options</summary>
+			<div id="options-container-inner">
+				<label for="spaces">spaces between codons</label>
+				<input type="checkbox" id="spaces" name="spaces" value="spaces">
+				<label for="rna">use RNA codons</label>
+				<input type="checkbox" id="rna" name="rna" value="rna">
+			</div>
+		</details>
 	</div>
 	<h2>Explanation</h2>
 	<p>
@@ -68,6 +73,9 @@
 		That said, Codon64 should not be used for any serious applications. It is no more secure than the
 		<a href="https://www.dcode.fr/vigenere-cipher" target="_blank">Vigenère cipher</a>, which served as
 		the basis for how the password works in Codon64.
+	</p>
+	<p>
+		However, it is perfectly suitable for alternate reality games (ARGs) or other puzzle games.
 	</p>
 	<h2>Encoding, Encryption, or Steganography?</h2>
 	<p>
