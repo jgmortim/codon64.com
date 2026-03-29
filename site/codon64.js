@@ -27,6 +27,13 @@ const SIX_BIT_MASK = 0x3F;
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
+/**
+ * Retrieves the correct shift amount for given index in the given password.
+ *
+ * @param {string} password  The password.
+ * @param {number} charIndex The index in the password.
+ * @returns {number} The shift amount.
+ */
 function getShift(password, charIndex) {
     if (password === '') {
         return 0;
@@ -36,12 +43,26 @@ function getShift(password, charIndex) {
     }
 }
 
+/**
+ * Removes any invalid characters from the password.
+ *
+ * @param {string} password The password to clean.
+ * @returns {string} The clean password.
+ */
 function cleanPassword(password) {
     return password.replaceAll(PASSWORD_REGEX, '')
 }
 
-export function encode(input, pass, noSpaces) {
-    let password = cleanPassword(pass);
+/**
+ * Encodes the given input with the given password.
+ *
+ * @param {string} input     The text to encode.
+ * @param {string} password  The password for the encoding. No password is treated the same using just "A".
+ * @param {boolean} noSpaces True if the return value should have no spaces between codons.
+ * @returns {string} The encoded text.
+ */
+export function encode(input, password, noSpaces) {
+    let key = cleanPassword(password);
 
     const bytes = encoder.encode(input);
     const encodedCodons = [];
@@ -57,7 +78,7 @@ export function encode(input, pass, noSpaces) {
         while (bitCount >= 6) {
             bitCount -= 6;
             const plainBits = (bitBuffer >> bitCount) & SIX_BIT_MASK;
-            const shift = getShift(password, codonCount);
+            const shift = getShift(key, codonCount);
             const encodedBits = (plainBits + shift) % 64;
             encodedCodons.push(CODONS[encodedBits]);
             codonCount++;
@@ -67,7 +88,7 @@ export function encode(input, pass, noSpaces) {
     // remaining bits
     if (bitCount > 0) {
         const plainBits = (bitBuffer << (6 - bitCount)) & SIX_BIT_MASK;
-        const shift = getShift(password, codonCount);
+        const shift = getShift(key, codonCount);
         const encodedBits = (plainBits + shift) % 64;
         encodedCodons.push(CODONS[encodedBits]);
         codonCount++;
@@ -84,8 +105,15 @@ export function encode(input, pass, noSpaces) {
     return encodedCodons.join(noSpaces ? " " : "");
 }
 
-export function decode(input, pass) {
-    let password = cleanPassword(pass);
+/**
+ * Decodes the given input with the given password.
+ *
+ * @param {string} input    The text to decode.
+ * @param {string} password The password for the decoding. No password is treated the same using just "A".
+ * @returns {string} The decoded text.
+ */
+export function decode(input, password) {
+    let key = cleanPassword(password);
 
     const inputCodons = input.replaceAll(/ /g, '').match(/.{1,3}/g);
     let plaintextBytes = [];
@@ -100,7 +128,7 @@ export function decode(input, pass) {
 
             if (encodedBits === -1) break; // padding
 
-            const shift = getShift(password, i + j);
+            const shift = getShift(key, i + j);
             const plainBits = ((encodedBits - shift) % 64 + 64) % 64; // floorMod
             buffer = (buffer << 6) | plainBits;
             numberOfValidCodons++;
