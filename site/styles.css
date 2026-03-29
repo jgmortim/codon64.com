@@ -30,7 +30,14 @@ main {
 h1 {
     width: min(100% , calc(1250px + 2rem));
     margin: auto;
-    color: white;
+    color: var(--main-color);
+    font-weight: 900;
+    text-shadow: -1px -1px 0 var(--accent-color);
+}
+
+h1>sup {
+    color: var(--accent-color);
+    text-shadow: -1px -1px 0 var(--main-color);
 }
 
 h2 {
