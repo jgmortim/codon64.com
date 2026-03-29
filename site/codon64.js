@@ -18,7 +18,7 @@ const CODONS = [
 ];
 
 const PASSWORD_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-const PASSWORD_REGEX = /[^A-Za-z\d\/\+]/g;
+const PASSWORD_REGEX = /[^A-Za-z\d\/+]/g;
 
 const EIGHT_BIT_MASK = 0xFF;
 const SIX_BIT_MASK = 0x3F;

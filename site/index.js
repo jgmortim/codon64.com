@@ -41,7 +41,7 @@ function highlight(el) {
 
 spaces.addEventListener('click', () => {
     if (spaces.checked) {
-        ciphertext.value = ciphertext.value.replace(/(.{3})/g,"$1 ").replace('==', '= =');
+        ciphertext.value = ciphertext.value.replace(/(.{3})/g, "$1 ").replace('==', '= =');
     } else {
         ciphertext.value = ciphertext.value.replaceAll(/ /g, '');
     }

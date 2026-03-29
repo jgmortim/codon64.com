@@ -1,102 +1,102 @@
 <html lang="en">
-    <head>
-		<meta charset="UTF-8">
-		<title>Codon64</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="styles.css">
-		<link rel="icon" type="image/x-icon" href="favicon.svg">
-    </head>
-    <body>
-		<canvas id="bg"></canvas>
-		<h1>CODON<sup>64</sup></h1>
-		<main>
-			<h2>Encoder & Decoder</h2>
-			<div id="function-container">
-				<label id="plaintext-label" for="plaintext">Plaintext</label>
-				<textarea id="plaintext"></textarea>
-				<div id="operations">
-					<button id="encode">
-						<span class="long-text">Encode →</span>
-						<span class="short-text">↓ Encode ↓</span>
-					</button>
-					<button id="decode">
-						<span class="long-text">← Decode</span>
-						<span class="short-text">↑ Decode ↑</span>
-					</button>
-				</div>
-				<label id="ciphertext-label" for="ciphertext">Ciphertext</label>
-				<textarea id="ciphertext"></textarea>
-				<div id="password-container">
-					<label for="password">Password:</label>
-					<input type="text" id="password" placeholder="optional"/>
-				</div>
-				<div id="options-container">
-					<input type="checkbox" id="spaces" name="spaces" value="spaces">
-					<label for="spaces">spaces between codons</label><br>
-				</div>
-			</div>
-			<h2>Explanation</h2>
-			<p>
-				There are 4 nucleotides in DNA:  guanine (G), adenine (A), cytosine (C), and thymine (T).
-				We can assign a numerical representation to each base. Such as A=0, C=1, G=2, and T=3.
-				Then nucleotides can be thought of as a base 4 system.
-			</p>
-			<p>
-				Codons are made of nucleotide triplets, which means there are 64 total codons (4x4x4).
-				Thus, codons as a whole can be thought of as a base 64 system. Wherein each codon is capable of
-				encoding 6 bits. Similar to how each symbol in Base64
-				(<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-4" target="_blank">RFC 4648 §4</a>)
-				encodes 6 bits.
-			</p>
-			<p>
-				This is the basis for <strong>Codon64</strong>. Just like in Base64, we map each 6 bits of input to
-				a unique output symbol. The main difference is that in Codon64, the symbols are codons, which are
-				expressed with three characters instead of one. And just like in Base64, equal signs are used for padding.
-			</p>
-			<p>
-				Technically, it's also valid to think of this as a base 4 system, in which A, C, G, and T are the 4
-				digits instead of 0, 1, 2, and 3. But Nucleotide4 doesn't roll off the tongue like Codon64.
-			</p>
-			<h2>Security</h2>
-			<p>
-				Encoding and decoding happens locally on your computer, in your browser. There is no server handling
-				the request. This means that your message is never sent over the internet unencrypted. It's never
-				sent over the internet at all for that matter. Don't trust me? This project is open source. You can
-				review the code	yourself on <a href="https://github.com/jgmortim/codon64.com" target="_blank">GitHub</a>.
-			</p>
-			<p>
-				That said, Codon64 should not be used for any serious applications. It is no more secure than the
-				<a href="https://www.dcode.fr/vigenere-cipher" target="_blank">Vigenère cipher</a>, which served as
-				the basis for how the password works in Codon64.
-			</p>
-			<h2>Encoding, Encryption, or Steganography?</h2>
-			<p>
-				Well technically, it can be all three.
-			</p>
-			<p>
-				The difference between encoding and encryption often comes down to intent. If your intent is to make
-				your message undecipherable to the watchful eye of a third party, you have an <u>encryption</u>. If
-				your intent is just to change the representation of your message into a	different format, then you have
-				an <u>encoding</u>. For example, the Base64 encoding exists	for the purpose of transmitting binary data
-				over a communication channel that only supports text.
-			</p>
-			<p>
-				To my knowledge, the only "communication channel" that is restricted to A, G, C, and T is actual DNA.
-				So if you've somehow figured out a way to create your own DNA sequence and used that to transmit your
-				message, then you would be using Codon64 as an encoding. Also, I'd be extremely impressed and want to
-				hear about it.
-			</p>
-			<p>
-				Lastly, whether this counts as <u>steganography</u> would depend on how you're transmitting	the
-				message. For example, you could try to pass your message off as an actual DNA sequence, or an entire
-				genome if your message was sufficiently large. Whether that would work as a successful pretense
-				to avoid suspicion of an encoded message will largely depend on who you are. But it would count as
-				steganography if you successfully transmitted a message in plain sight without arising suspicion.
-			</p>
-		</main>
-		<footer>
-			<p>&copy; 2026 John Mortimore. All Rights Reserved.</p>
-		</footer>
-		<script type="module" src="index.js"></script>
-    </body>
+<head>
+	<meta charset="UTF-8">
+	<title>Codon64</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="favicon.svg">
+</head>
+<body>
+<canvas id="bg"></canvas>
+<h1>CODON<sup>64</sup></h1>
+<main>
+	<h2>Encoder & Decoder</h2>
+	<div id="function-container">
+		<label id="plaintext-label" for="plaintext">Plaintext</label>
+		<textarea id="plaintext"></textarea>
+		<div id="operations">
+			<button id="encode">
+				<span class="long-text">Encode →</span>
+				<span class="short-text">↓ Encode ↓</span>
+			</button>
+			<button id="decode">
+				<span class="long-text">← Decode</span>
+				<span class="short-text">↑ Decode ↑</span>
+			</button>
+		</div>
+		<label id="ciphertext-label" for="ciphertext">Ciphertext</label>
+		<textarea id="ciphertext"></textarea>
+		<div id="password-container">
+			<label for="password">Password:</label>
+			<input type="text" id="password" placeholder="optional"/>
+		</div>
+		<div id="options-container">
+			<input type="checkbox" id="spaces" name="spaces" value="spaces">
+			<label for="spaces">spaces between codons</label><br>
+		</div>
+	</div>
+	<h2>Explanation</h2>
+	<p>
+		There are 4 nucleotides in DNA: guanine (G), adenine (A), cytosine (C), and thymine (T).
+		We can assign a numerical representation to each base. Such as A=0, C=1, G=2, and T=3.
+		Then nucleotides can be thought of as a base 4 system.
+	</p>
+	<p>
+		Codons are made of nucleotide triplets, which means there are 64 total codons (4x4x4).
+		Thus, codons as a whole can be thought of as a base 64 system. Wherein each codon is capable of
+		encoding 6 bits. Similar to how each symbol in Base64
+		(<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-4" target="_blank">RFC 4648 §4</a>)
+		encodes 6 bits.
+	</p>
+	<p>
+		This is the basis for <strong>Codon64</strong>. Just like in Base64, we map each 6 bits of input to
+		a unique output symbol. The main difference is that in Codon64, the symbols are codons, which are
+		expressed with three characters instead of one. And just like in Base64, equal signs are used for padding.
+	</p>
+	<p>
+		Technically, it's also valid to think of this as a base 4 system, in which A, C, G, and T are the 4
+		digits instead of 0, 1, 2, and 3. But Nucleotide4 doesn't roll off the tongue like Codon64.
+	</p>
+	<h2>Security</h2>
+	<p>
+		Encoding and decoding happens locally on your computer, in your browser. There is no server handling
+		the request. This means that your message is never sent over the internet unencrypted. It's never
+		sent over the internet at all for that matter. Don't trust me? This project is open source. You can
+		review the code yourself on <a href="https://github.com/jgmortim/codon64.com" target="_blank">GitHub</a>.
+	</p>
+	<p>
+		That said, Codon64 should not be used for any serious applications. It is no more secure than the
+		<a href="https://www.dcode.fr/vigenere-cipher" target="_blank">Vigenère cipher</a>, which served as
+		the basis for how the password works in Codon64.
+	</p>
+	<h2>Encoding, Encryption, or Steganography?</h2>
+	<p>
+		Well technically, it can be all three.
+	</p>
+	<p>
+		The difference between encoding and encryption often comes down to intent. If your intent is to make
+		your message undecipherable to the watchful eye of a third party, you have an <u>encryption</u>. If
+		your intent is just to change the representation of your message into a different format, then you have
+		an <u>encoding</u>. For example, the Base64 encoding exists for the purpose of transmitting binary data
+		over a communication channel that only supports text.
+	</p>
+	<p>
+		To my knowledge, the only "communication channel" that is restricted to A, G, C, and T is actual DNA.
+		So if you've somehow figured out a way to create your own DNA sequence and used that to transmit your
+		message, then you would be using Codon64 as an encoding. Also, I'd be extremely impressed and want to
+		hear about it.
+	</p>
+	<p>
+		Lastly, whether this counts as <u>steganography</u> would depend on how you're transmitting the
+		message. For example, you could try to pass your message off as an actual DNA sequence, or an entire
+		genome if your message was sufficiently large. Whether that would work as a successful pretense
+		to avoid suspicion of an encoded message will largely depend on who you are. But it would count as
+		steganography if you successfully transmitted a message in plain sight without arising suspicion.
+	</p>
+</main>
+<footer>
+	<p>&copy; 2026 John Mortimore. All Rights Reserved.</p>
+</footer>
+<script type="module" src="index.js"></script>
+</body>
 </html>
