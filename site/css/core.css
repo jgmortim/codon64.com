@@ -6,9 +6,21 @@
     --input-color: #7FD1B9;
     --input-highlight-color: #9EF5DB;
     --text-color: white;
+    --button-text-color: black;
+    --footer-text-color: white;
     --input-text-color: #200E16;
     --placeholder-text-color: #454545;
     --link-text-color: #FFA3C5;
+    --footer-link-text-color: #FFA3C5
+}
+
+[data-theme="light"] {
+    --main-color: #DECDEE;
+    --accent-color: #89435d;
+    --background-color: #351f47;
+    --text-color: black;
+    --button-text-color: white;
+    --link-text-color: #75006c;
 }
 
 body {
@@ -47,6 +59,14 @@ h1 a:link, h1 a:visited {
     color: inherit;
 }
 
+[data-theme="light"] h1 {
+    text-shadow: -1px -1px 0 #FF70A5;
+}
+
+[data-theme="light"] h1 > sup, [data-theme="light"] h1 > a > sup {
+    color: #FF70A5;
+}
+
 h2 {
     padding-top: 1rem;
     color: var(--accent-color);
@@ -60,6 +80,14 @@ a:link, a:visited {
     color: var(--link-text-color);
 }
 
+button {
+    font-size: 12pt;
+    white-space: nowrap;
+    border-radius: 4px;
+    color: var(--button-text-color);
+    background-color: var(--accent-color);
+}
+
 strong {
     color: var(--accent-color);
 }
@@ -69,7 +97,12 @@ footer {
     left: 0;
     margin-top: auto;
     text-align: center;
-    color: var(--text-color);
+    color: var(--footer-text-color);
+}
+
+footer a:link, footer a:visited {
+    text-decoration: var(--footer-link-text-color);
+    color: var(--footer-link-text-color);
 }
 
 #bg {
@@ -80,6 +113,25 @@ footer {
     width: 100vw;
     height: 100vh;
     pointer-events: none;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 0;
+    right: 1rem;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding-top: 4px;
+    padding-bottom: 5px;
+}
+
+[data-theme="dark"] #sun, [data-theme="light"] #moon {
+    display: block;
+}
+
+[data-theme="light"] #sun, [data-theme="dark"] #moon {
+    display: none;
 }
 
 @media screen and (max-width: 750px) {
