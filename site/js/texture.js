@@ -1,10 +1,29 @@
 /**
- * @fileoverview Creates the faint text "texture" in the background of the site.
+ * @fileoverview Creates the faint text "texture" in the background of the site. And handles light vs dark mode toggle.
  */
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
 const TEXT = "AGAAAGAAAGAAAGAAAGAAAGAAAGTTCGAAAGTTCCTAAGTTCGAAAGTAAGTGAAGGAGAAAGAACCTTCCTTCCTTAGCTCGAAAGAAAGAAAGAAAGAAAGAAAGAAAGAACCTAAGTTCGAAAGTAAGTGAGTGCCTACCTAAGTTAGTTCCTTAAGGAGAAAGTTAGAACGTTAGAACGAAAGTCATGTAGAAAGAAAGTGAGAAAGTGAGAAAGAAAGAACCTTCCTTCCTTAGTCAGTCAGTCAGTCAGCTAGCTAAGGAGAACTTAAGAAAGAAAGTGAGTCAGTCAGCTAGAAAGAAAGAAATGGATGGAGAAATGGAGCTAAGGAGAAAGAACCTAAGAAAGCTAGTGAGAAAGTAAGAAAGAACTTAAGTGCTTAAGAACTTAAAGGAGAAAGAAAGAACTTAAGAACTTAAGAACTTAAGAACTTAAGAAAGCTAGTCCTTACCTTCTTAAAGGAGAAAGAACTTACCTTCTTAAGAAAGAACTTACCTTCTTAAAGGCATCCGCCCGCCCTCAAGAACTCACGGCCGTGCTGCAGAACCAACGCCCGCTCGCTCTGCAAGGAGAACTCACGGACGCCAGAACTCACGGCCGTGCTGCAGAACCATCTCACGCCCGCTCGTTCTATCGACCTCCCTAGCTCCCTAT";
+
+/**
+ * Sets the theme.
+ */
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+}
+
+/**
+ * Toggles the theme.
+ */
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const targetTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.getElementById('theme-toggle')
+    setTheme(targetTheme);
+}
+
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 /**
  * Redraws the canvas on page resize.
