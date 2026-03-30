@@ -1,3 +1,6 @@
+/**
+ * @fileOverview Event listeners for functions section of the home page.
+ */
 import { encode, decode } from './codon64.js';
 
 const plaintext = document.getElementById('plaintext');

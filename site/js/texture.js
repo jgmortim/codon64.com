@@ -1,3 +1,6 @@
+/**
+ * @fileoverview Creates the faint text "texture" in the background of the site.
+ */
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
