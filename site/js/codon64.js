@@ -1,3 +1,7 @@
+/**
+ * @fileoverview The actual Codon64 encoding and decoding functions.
+ */
+
 const DNA_CODONS = [
     "AAA", "AAC", "AAG", "AAT",
     "ACA", "ACC", "ACG", "ACT",
