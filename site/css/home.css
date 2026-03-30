@@ -10,13 +10,6 @@ label:has(+ textarea) {
     font-size: 14pt;
 }
 
-button {
-    font-size: 12pt;
-    white-space: nowrap;
-    border-radius: 4px;
-    background-color: var(--accent-color);
-}
-
 textarea {
     box-sizing: border-box;
     width: 100%;
@@ -146,7 +139,7 @@ details[open] summary {
 
 #options-container-inner > label {
     text-align: right;
-    color: white;
+    color: var(--text-color);
 }
 
 @media screen and (max-width: 750px) {
