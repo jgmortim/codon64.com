@@ -3,41 +3,17 @@
  */
 
 const DNA_CODONS = [
-    "AAA", "AAC", "AAG", "AAT",
-    "ACA", "ACC", "ACG", "ACT",
-    "AGA", "AGC", "AGG", "AGT",
-    "ATA", "ATC", "ATG", "ATT",
-    "CAA", "CAC", "CAG", "CAT",
-    "CCA", "CCC", "CCG", "CCT",
-    "CGA", "CGC", "CGG", "CGT",
-    "CTA", "CTC", "CTG", "CTT",
-    "GAA", "GAC", "GAG", "GAT",
-    "GCA", "GCC", "GCG", "GCT",
-    "GGA", "GGC", "GGG", "GGT",
-    "GTA", "GTC", "GTG", "GTT",
-    "TAA", "TAC", "TAG", "TAT",
-    "TCA", "TCC", "TCG", "TCT",
-    "TGA", "TGC", "TGG", "TGT",
-    "TTA", "TTC", "TTG", "TTT",
+    "AAA", "AAC", "AAG", "AAT", "ACA", "ACC", "ACG", "ACT", "AGA", "AGC", "AGG", "AGT", "ATA", "ATC", "ATG", "ATT",
+    "CAA", "CAC", "CAG", "CAT", "CCA", "CCC", "CCG", "CCT", "CGA", "CGC", "CGG", "CGT", "CTA", "CTC", "CTG", "CTT",
+    "GAA", "GAC", "GAG", "GAT", "GCA", "GCC", "GCG", "GCT", "GGA", "GGC", "GGG", "GGT", "GTA", "GTC", "GTG", "GTT",
+    "TAA", "TAC", "TAG", "TAT", "TCA", "TCC", "TCG", "TCT", "TGA", "TGC", "TGG", "TGT", "TTA", "TTC", "TTG", "TTT"
 ];
 
 const RNA_CODONS = [
-    "AAA", "AAC", "AAG", "AAU",
-    "ACA", "ACC", "ACG", "ACU",
-    "AGA", "AGC", "AGG", "AGU",
-    "AUA", "AUC", "AUG", "AUU",
-    "CAA", "CAC", "CAG", "CAU",
-    "CCA", "CCC", "CCG", "CCU",
-    "CGA", "CGC", "CGG", "CGU",
-    "CUA", "CUC", "CUG", "CUU",
-    "GAA", "GAC", "GAG", "GAU",
-    "GCA", "GCC", "GCG", "GCU",
-    "GGA", "GGC", "GGG", "GGU",
-    "GUA", "GUC", "GUG", "GUU",
-    "UAA", "UAC", "UAG", "UAU",
-    "UCA", "UCC", "UCG", "UCU",
-    "UGA", "UGC", "UGG", "UGU",
-    "UUA", "UUC", "UUG", "UUU",
+    "AAA", "AAC", "AAG", "AAU", "ACA", "ACC", "ACG", "ACU", "AGA", "AGC", "AGG", "AGU", "AUA", "AUC", "AUG", "AUU",
+    "CAA", "CAC", "CAG", "CAU", "CCA", "CCC", "CCG", "CCU", "CGA", "CGC", "CGG", "CGU", "CUA", "CUC", "CUG", "CUU",
+    "GAA", "GAC", "GAG", "GAU", "GCA", "GCC", "GCG", "GCU", "GGA", "GGC", "GGG", "GGU", "GUA", "GUC", "GUG", "GUU",
+    "UAA", "UAC", "UAG", "UAU", "UCA", "UCC", "UCG", "UCU", "UGA", "UGC", "UGG", "UGU", "UUA", "UUC", "UUG", "UUU"
 ];
 
 const PASSWORD_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
