@@ -17,30 +17,21 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install minifiers
-        run: |
-          npm install -g html-minifier-terser clean-css-cli terser
+      - name: Install esbuild
+        run: npm install esbuild
 
-      - name: Minify site
+      - name: Build site
         run: |
           mkdir -p dist
 
-          # Copy everything first
-          cp -r site/* dist/
+          # Copy static assets
+          rsync -av --exclude='*.js' --exclude='*.css' site/ dist/
 
-          # Minify HTML
-          find dist -name "*.html" -exec html-minifier-terser \
-            --collapse-whitespace \
-            --remove-comments \
-            --minify-css true \
-            --minify-js true \
-            -o {} {} \;
+          # Bundle + minify JS
+          npx esbuild site/js/*.js --bundle --minify --outdir=dist/js
 
-          # Minify CSS
-          find dist -name "*.css" -exec cleancss -o {} {} \;
-
-          # Minify JS
-          find dist -name "*.js" -exec terser {} -o {} -c -m \;
+          # Minify CSS (esbuild can do this too)
+          npx esbuild site/css/*.css --minify --outdir=dist/css
 
       - name: Setup SSH
         run: |
