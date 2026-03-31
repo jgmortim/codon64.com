@@ -30,6 +30,7 @@ textarea {
     border: 2px solid var(--input-color);
     border-radius: 4px;
     background-color: var(--input-color);
+    font-family: Consolas, monospace;
 }
 
 input {
