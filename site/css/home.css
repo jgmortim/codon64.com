@@ -86,7 +86,7 @@ summary {
     display: none;
 }
 
-.arrow-up {
+.arrow-down {
     display: inline-block;
     transform: rotate(90deg);
 }
@@ -96,7 +96,7 @@ summary {
     transform: rotate(180deg) translateY(-2px);
 }
 
-.arrow-down {
+.arrow-up {
     display: inline-block;
     transform: rotate(270deg);
 }
