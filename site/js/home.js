@@ -24,13 +24,13 @@ textareas.forEach(t => observer.observe(t));
 
 /* Encode/Decode Functions */
 
-document.getElementById('encode').addEventListener('click', () => {
+document.getElementById('encode-btn').addEventListener('click', () => {
     let output = encode(plaintext.value, password.value, spaces.checked, rna.checked);
     highlight(ciphertext);
     ciphertext.value = output;
 });
 
-document.getElementById('decode').addEventListener('click', () => {
+document.getElementById('decode-btn').addEventListener('click', () => {
     let output = decode(ciphertext.value, password.value);
     highlight(plaintext);
     plaintext.value = output;

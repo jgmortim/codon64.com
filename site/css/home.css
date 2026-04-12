@@ -44,9 +44,30 @@ input[type="checkbox"] {
 }
 
 details {
-    padding: 0.5em 0.5em 0;
+    margin-top: .5rem;
+    padding: 0.5rem;
     border: 1px solid var(--accent-color);
     border-radius: 4px;
+    grid-column: 1 / 4;
+    grid-row: 4;
+}
+
+details > div {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 1rem 0.5rem;
+}
+
+details > div > label {
+    text-align: right;
+    color: white;
+}
+
+details[open] > summary {
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid var(--accent-color);
 }
 
 summary {
@@ -56,21 +77,12 @@ summary {
     color: var(--accent-color);
 }
 
-details[open] {
-    padding: 0.5em;
-}
-
-details[open] summary {
-    margin-bottom: 0.5em;
-    border-bottom: 1px solid var(--accent-color);
-}
-
 .highlight {
     border: 2px solid var(--input-highlight-color);
     background-color: var(--input-highlight-color);
 }
 
-.short-text {
+.mobile {
     display: none;
 }
 
@@ -94,7 +106,7 @@ details[open] summary {
     color: var(--placeholder-text-color);
 }
 
-#function-container {
+#function-wrapper {
     display: grid;
     align-items: stretch;
     margin-bottom: 1rem;
@@ -132,7 +144,7 @@ details[open] summary {
     gap: 1rem;
 }
 
-#password-container {
+#password-wrapper {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -145,36 +157,16 @@ details[open] summary {
     gap: 1rem;
 }
 
-#options-container {
-    margin-top: .5rem;
-    padding: 0.5rem;
-    grid-column: 1 / 4;
-    grid-row: 4;
-}
-
-#options-container-inner {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    gap: 1rem 0.5rem;
-}
-
-#options-container-inner > label {
-    text-align: right;
-    color: white;
-}
-
 @media screen and (max-width: 750px) {
-    .long-text {
+    .desktop {
         display: none;
     }
 
-    .short-text {
+    .mobile {
         display: inline;
     }
 
-    #function-container {
+    #function-wrapper {
         margin-bottom: 3rem;
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr auto auto auto auto 1fr;
@@ -190,7 +182,7 @@ details[open] summary {
         grid-row: 2;
     }
 
-    #password-container {
+    #password-wrapper {
         margin-top: 1rem;
         margin-bottom: 0;
         grid-column: 1;
@@ -204,7 +196,7 @@ details[open] summary {
         grid-row: 4;
     }
 
-    #options-container {
+    #options-wrapper {
         margin-bottom: 1.5rem;
         grid-column: 1;
         grid-row: 5;

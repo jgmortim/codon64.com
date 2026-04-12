@@ -11,28 +11,28 @@
 <h1>CODON<sup>64</sup></h1>
 <main>
 	<h2>Encoder & Decoder</h2>
-	<div id="function-container">
+	<div id="function-wrapper">
 		<label id="plaintext-label" for="plaintext">Plaintext</label>
 		<textarea id="plaintext"></textarea>
 		<div id="operations">
-			<button id="encode">
-				<span class="long-text">Encode ➜</span>
-				<span class="short-text"><span class="arrow-down">➜</span> Encode <span class="arrow-down">➜</span></span>
+			<button id="encode-btn">
+				<span class="desktop">Encode ➜</span>
+				<span class="mobile"><span class="arrow-down">➜</span> Encode <span class="arrow-down">➜</span></span>
 			</button>
-			<button id="decode">
-				<span class="long-text"><span class="arrow-left">➜</span> Decode</span>
-				<span class="short-text"><span class="arrow-up">➜</span> Decode <span class="arrow-up">➜</span></span>
+			<button id="decode-btn">
+				<span class="desktop"><span class="arrow-left">➜</span> Decode</span>
+				<span class="mobile"><span class="arrow-up">➜</span> Decode <span class="arrow-up">➜</span></span>
 			</button>
 		</div>
 		<label id="ciphertext-label" for="ciphertext">Ciphertext</label>
 		<textarea id="ciphertext"></textarea>
-		<div id="password-container">
+		<div id="password-wrapper">
 			<label for="password">Password:</label>
 			<input type="text" id="password" placeholder="optional"/>
 		</div>
-		<details id="options-container">
+		<details id="options-wrapper">
 			<summary>Additional Options</summary>
-			<div id="options-container-inner">
+			<div>
 				<label for="spaces">spaces between codons</label>
 				<input type="checkbox" id="spaces" name="spaces" value="spaces">
 				<label for="rna">use RNA codons</label>
