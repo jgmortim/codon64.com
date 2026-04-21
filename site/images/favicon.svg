@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256">
-	<rect x="0" y="0" width="256" height="256" rx="38" ry="38" fill="#867596"/>
+	<rect width="256" height="256" rx="38" ry="38" fill="#867596"/>
 	<text x="8" y="82" fill="#ff70a5" dominant-baseline="text-before-edge" font-family="Arial" font-size="156" font-weight="bold">C</text>
 	<text x="11" y="88" fill="#3e2354" dominant-baseline="text-before-edge" font-family="Arial" font-size="156" font-weight="bold">C</text>
 	<text x="100" y="25" fill="#3e2354" dominant-baseline="text-before-edge" font-family="Arial" font-size="132" font-weight="bold">64</text>
