@@ -1,22 +1,7 @@
-<?xml version="1.0"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256px" height="256px">
-	<ellipse cx="38px" cy="38px" rx="38px" ry="38px" fill="#867596"/>
-	<ellipse cx="218px" cy="38px" rx="38px" ry="38px" fill="#867596"/>
-	<ellipse cx="38px" cy="218px" rx="38px" ry="38px" fill="#867596"/>
-	<ellipse cx="218px" cy="218px" rx="38px" ry="38px" fill="#867596"/>
-	<rect x="38px" y="0px" width="180px" height="256px" fill="#867596"/>
-	<rect x="0px" y="38" width="256px" height="180px" fill="#867596"/>
-	<text x="8px" y="82px" text-anchor="start" font-family="Arial" font-size="156"
-	      dominant-baseline="text-before-edge" font-weight="bold" fill="#ff70a5">C
-	</text>
-	<text x="11px" y="88px" text-anchor="start" font-family="Arial" font-size="156"
-	      dominant-baseline="text-before-edge" font-weight="bold" fill="#3e2354">C
-	</text>
-	<text x="100px" y="25px" text-anchor="start" font-family="Arial" font-size="132"
-	      dominant-baseline="text-before-edge" font-weight="bold" fill="#3e2354">64
-	</text>
-	<text x="104px" y="29px" text-anchor="start" font-family="Arial" font-size="132"
-	      dominant-baseline="text-before-edge" font-weight="bold" fill="#ff70a5">64
-	</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+	<rect x="0" y="0" width="256" height="256" rx="38" ry="38" fill="#867596"/>
+	<text x="8" y="82" fill="#ff70a5" dominant-baseline="text-before-edge" font-family="Arial" font-size="156" font-weight="bold">C</text>
+	<text x="11" y="88" fill="#3e2354" dominant-baseline="text-before-edge" font-family="Arial" font-size="156" font-weight="bold">C</text>
+	<text x="100" y="25" fill="#3e2354" dominant-baseline="text-before-edge" font-family="Arial" font-size="132" font-weight="bold">64</text>
+	<text x="104" y="29" fill="#ff70a5" dominant-baseline="text-before-edge" font-family="Arial" font-size="132" font-weight="bold">64</text>
 </svg>
