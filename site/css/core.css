@@ -18,7 +18,8 @@ body {
 }
 
 main {
-    width: min(calc(100% - 2rem), 1250px);
+    box-sizing: border-box;
+    width: min(100%, 1250px);
     margin-right: auto;
     margin-left: auto;
     padding-right: 1rem;
@@ -30,7 +31,7 @@ main {
 }
 
 h1 {
-    width: min(100%, calc(1250px + 2rem));
+    width: min(100%, 1250px);
     margin: auto auto 8px;
     font-weight: 900;
     color: var(--main-color);
@@ -88,7 +89,6 @@ footer {
     }
 
     main {
-        width: calc(100% - 4vw);
         padding-right: 2vw;
         padding-left: 2vw;
     }
