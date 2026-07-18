@@ -27,7 +27,7 @@ const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
 /**
- * Retrieves the correct shift amount for given index in the given password.
+ * Retrieves the correct shift amount for the given index in the given password.
  *
  * @param {string} password  The password.
  * @param {number} charIndex The index in the password.
@@ -93,7 +93,7 @@ export function encode(input, password, noSpaces, rna) {
     }
 
     // It takes 4 codons to get an integer number of bytes, if the number of codons isn't a multiple of 4, pad the message
-    // with "=" to make output length a multiple of 4.
+    // with "=" to make the output length a multiple of 4.
     const mod = encodedCodons.length % 4;
     if (mod !== 0) {
         for (let i = 0; i < 4 - mod; i++) {
@@ -115,8 +115,9 @@ export function decode(input, password) {
     let key = cleanPassword(password);
     let codonSet = input.includes("T") ? DNA_CODONS : RNA_CODONS;
 
-    // Remove spaces and split on every third character.
-    const inputCodons = input.replaceAll(/ /g, '').match(/.{1,3}/g);
+    // Remove any non-codon charters and convert to uppercase.
+    const cleanedInput = input.toUpperCase().replace(/[^ACGTU]/g, '');
+    const inputCodons = cleanedInput.match(/.{1,3}/g); // Split on every third character.
     let plaintextBytes = [];
 
     for (let i = 0; i < inputCodons?.length; i += 4) { // i indexes over 4 codon (3 byte) blocks.
