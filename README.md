@@ -19,3 +19,7 @@ An extremely lightweight (all pages under 10 kb) website for Codon64.
 
 The code for Codon64 is licensed under version 3.0 of the GNU GENERAL PUBLIC LICENSE.
 However, the text content of the website is copyrighted and I reserve the rights for it.
+
+## Contributors
+
+* [Trevor West](https://github.com/trevorallenw)
